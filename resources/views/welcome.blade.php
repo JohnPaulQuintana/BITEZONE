@@ -5,32 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>BITEZONE</title>
+        {{-- image --}}
+        <link rel="stylesheet" href="{{ asset('images/logo.png') }}">
+
 
         {{-- font-awesome --}}
         <link rel="stylesheet" href="{{ asset('font-awesome/all.min.css') }}">
+        
+        {{-- fonts --}}
+        
+
 
         @vite('resources/css/app.css')
         
         {{-- xustom css --}}
         <style>
-            .bg-img{
-                background: url("{{ asset('images/test.jpg') }}");
-                background-repeat:no-repeat;
-                background-size: contain;
-                background-position: right;
+            #logo{
+                height: 45px;
+            }
+            #dr{
+                height: 800px;
             }
         </style>
     </head>
     <body>
         {{-- header --}}
-        <header class="border-black border-b-2 flex gap-2 justify-between p-2">
-            <div class="logo border">Logo</div>
-            <div class="nav border">
-                <ul class="flex gap-2">
-                    <li class="cursor-pointer hover:text-green-600">navigation</li>
-                    <li>navigation jdkawjdkwa</li>
-                    <li>navigation</li>
-                    <li>navigation</li>
+        <header class="border-red-300 border-b-2 flex gap-2 justify-between p-2">
+            <div class="flex">
+                <img src="images/logo.png" alt="" id="logo">
+                <h1 class="font-bold text-red-400 text-4xl">BITEZONE</h1>
+            </div>
+            <div>
+                <ul class="flex gap-8 text-2xl font-mono text-red-400 font-bold">
+                    <li class="cursor-pointer hover:text-red-600 p-2">Home</li>
+                    <li class="cursor-pointer hover:text-red-600 p-2">Services</li>
+                    <li class="cursor-pointer hover:text-red-600 p-2">About</li>
+                    <li class="cursor-pointer hover:text-red-600 p-2">RHU</li>
                 </ul>
             </div>
             

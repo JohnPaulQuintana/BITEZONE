@@ -14,6 +14,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            fontFamily: {
+                Rubik: ['Rubik Doodle Shadow'],
+                Protest: ['Protest Riot']
+            }
         },
     },
 

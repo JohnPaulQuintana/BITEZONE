@@ -28,7 +28,7 @@
             <div class="nav border">
                 <ul class="flex gap-2">
                     <li class="cursor-pointer hover:text-green-600">navigation</li>
-                    <li>navigation</li>
+                    <li>navigation jdkawjdkwa</li>
                     <li>navigation</li>
                     <li>navigation</li>
                 </ul>

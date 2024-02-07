@@ -1,13 +1,14 @@
 
-<div class="grid grid-cols-2 h-auto p-3 bg">
-    <div class="flex justify-center bg-red-300">
-        <img class="rounded-md overflow-hidden h-fit p-24 bg-transparent" id="dr" src="images/Doctors.gif" alt="">
+<div class="grid grid-cols-2 h-auto">
+    <div class="flex justify-center">
+        <img class="rounded-md overflow-hidden h-fit bg-transparent p-20" id="dr" src="images/Doctors.gif" alt="">
     </div>
     <div>
-        <div class="text-center text-6xl font-bold font-Rubik text-red-400 mt-32 p-10">
+        <div class="text-center text-6xl font-bold font-Rubik text-white mt-32 p-10 border-8 border-red-500 bg-red-400 ">
             Together, It's PAWSIBLE <br> to End the Spread of RABIES
         </div>
         <div class="text-3xl text-center font-semibold mt-5 text-gray-500">
+            <i class="fa-solid fa-arrow-right text-red-600"></i>
             Rabies is responsible for arround 60,000 deaths <br> worldwide each year. We can stop this.
         </div>
 

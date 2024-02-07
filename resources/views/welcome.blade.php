@@ -20,6 +20,11 @@
         
         {{-- xustom css --}}
         <style>
+            body{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box
+            }
             #logo{
                 height: 45px;
             }
@@ -39,8 +44,8 @@
                         @auth
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-right-to-bracket"></i> <a href="{{ url('/dashboard') }}">Back To Dashboard</a></li>
                             @else
-                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-location-dot"></i> Location</li>
-                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-house"></i> Home</li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-location-dot"></i> <a href="{{ route('location') }}"> Location</a></li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-house"></i> <a href="{{ route('home') }}">Home</a></li>
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital-user"></i> Services</li>
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital"></i> About</li>
                             <li class="cursor-pointer bg-white text-red-400 rounded-md hover:text-red-700 p-2 border">
@@ -71,7 +76,13 @@
 
             {{-- main --}}
             <div>
-                @include('includes.main')
+                @if (Route::has('location'))
+                    @yield('contents')   
+                @else
+                    @include('includes.main')
+                @endif
+
+                
             </div>
 
 
@@ -88,5 +99,7 @@
 
         {{-- box-icons --}}
         <script src="{{ asset('box-icons/boxicons.js') }}"></script>
+
+        @yield('scripts')
     </body>
 </html>

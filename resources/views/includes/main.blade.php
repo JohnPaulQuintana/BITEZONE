@@ -1,5 +1,8 @@
 
-<div class="grid grid-cols-2 h-auto">
+@extends('welcome')
+
+@section('contents')
+<div class="grid grid-cols-2 h-auto p-20">
     <div class="flex justify-center">
         <img class="rounded-md overflow-hidden h-fit bg-transparent p-20" id="dr" src="images/Doctors.gif" alt="">
     </div>
@@ -41,3 +44,4 @@
     
     
 </div>
+@endsection

@@ -15,6 +15,8 @@
         {{-- box-icons --}}
         <link rel="stylesheet" href="{{ asset('box-icons/boxicons.min.css') }}">
 
+        {{-- flowbite --}}
+        <link rel="stylesheet" href="{{ asset('flowbite/flowbite.min.css') }}">
 
         @vite('resources/css/app.css')
         
@@ -75,14 +77,8 @@
             @endif --}}
 
             {{-- main --}}
-            <div>
-                @if (Route::has('location'))
-                    @yield('contents')   
-                @else
-                    @include('includes.main')
-                @endif
-
-                
+            <div>    
+                    @yield('contents')     
             </div>
 
 
@@ -100,6 +96,8 @@
         {{-- box-icons --}}
         <script src="{{ asset('box-icons/boxicons.js') }}"></script>
 
+        {{-- flowbite --}}
+        <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
         @yield('scripts')
     </body>
 </html>

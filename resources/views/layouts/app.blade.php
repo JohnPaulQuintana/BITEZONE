@@ -19,8 +19,12 @@
 
          {{-- flowbite --}}
          <link rel="stylesheet" href="{{ asset('flowbite/flowbite.min.css') }}">
+
+         
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -42,5 +46,7 @@
 
         {{-- flowbite --}}
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        @yield('scripts')
     </body>
 </html>

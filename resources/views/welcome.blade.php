@@ -12,8 +12,8 @@
         {{-- font-awesome --}}
         <link rel="stylesheet" href="{{ asset('font-awesome/all.min.css') }}">
         
-        {{-- fonts --}}
-        
+        {{-- box-icons --}}
+        <link rel="stylesheet" href="{{ asset('box-icons/boxicons.min.css') }}">
 
 
         @vite('resources/css/app.css')
@@ -23,25 +23,34 @@
             #logo{
                 height: 45px;
             }
-            #dr{
-                height: 800px;
-            }
+            
         </style>
     </head>
     <body>
         {{-- header --}}
-        <header class="border-red-300 border-b-2 flex gap-2 justify-between p-2">
-            <div class="flex">
-                <img src="images/logo.png" alt="" id="logo">
-                <h1 class="font-bold text-red-400 text-4xl">BITEZONE</h1>
+        <header class="bg-red-500 border-red-300 text-white border-b-2 flex gap-2 justify-between p-2 fixed w-full">
+            <div class="flex gap-2">
+                <i class="fa-solid fa-paw fa-2xl"></i>
+                <h1 class="font-bold text-4xl"> BITEZONE</h1>
             </div>
             <div>
-                <ul class="flex gap-8 text-2xl font-mono text-red-400 font-bold">
-                    <li class="cursor-pointer hover:text-red-600 p-2">Home</li>
-                    <li class="cursor-pointer hover:text-red-600 p-2">Services</li>
-                    <li class="cursor-pointer hover:text-red-600 p-2">About</li>
-                    <li class="cursor-pointer hover:text-red-600 p-2">RHU</li>
-                </ul>
+                @if (Route::has('login'))
+                    <ul class="flex gap-8 text-xl font-mono font-bold">
+                        @auth
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-right-to-bracket"></i> <a href="{{ url('/dashboard') }}">Back To Dashboard</a></li>
+                            @else
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-location-dot"></i> Location</li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-house"></i> Home</li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital-user"></i> Services</li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital"></i> About</li>
+                            <li class="cursor-pointer bg-white text-red-400 rounded-md hover:text-red-700 p-2 border">
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Register</a>
+                                @endif
+                            </li>
+                        @endauth
+                    </ul>
+                @endif
             </div>
             
         </header>
@@ -76,5 +85,8 @@
 
         {{-- scripts --}}
         <script src="{{ asset('font-awesome/all.min.js') }}"></script>
+
+        {{-- box-icons --}}
+        <script src="{{ asset('box-icons/boxicons.js') }}"></script>
     </body>
 </html>

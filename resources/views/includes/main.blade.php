@@ -4,15 +4,15 @@
 @section('contents')
 <!-- Slider Area -->
 <section class="slider mb-20">
-    <div class="hero-slider">
+    <div class="hero-slider  ">
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('img/slider2.jpg')">
+        <div class="single-slider" style="background-image:url('https://images.ctfassets.net/rt5zmd3ipxai/5tLyiQibtIZvPcxwGrHTle/8f9899e6a4f3081e22c509642156abfb/vaccinations-puppy.jpg?fit=fill&fm=webp&h=480&w=782&q=72,%20https://images.ctfassets.net/rt5zmd3ipxai/5tLyiQibtIZvPcxwGrHTle/8f9899e6a4f3081e22c509642156abfb/vaccinations-puppy.jpg?fit=fill&fm=webp&h=960&w=1564&q=72">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text pl-14">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>RABIES</span></h1>
+                            <p class="text-black">100% vaccine preventable to save lives, to stop transmission.</p>
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
                                 <a href="#" class="btn primary">Login</a>
@@ -24,13 +24,13 @@
         </div>
         <!-- End Single Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('img/slider.jpg')">
+        <div class="single-slider" style="background-image:url('https://www.clinicaltrialsarena.com/wp-content/uploads/sites/22/2023/09/shutterstock_1506051596.jpg')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text pl-14">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>RABIES VACCINATION <br> STARTS WITH YOU</span></h1>
+                            <p class="text-black">Don't leave the issue unheard. Do your part and educate the world about it. <br> End rabies. Stay healthy and be safe.</p>
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
                                 <a href="#" class="btn primary">Login</a>
@@ -42,13 +42,12 @@
         </div>
         <!-- Start End Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('img/slider3.jpg')">
+        <div class="single-slider" style="background-image:url('https://live.staticflickr.com/2864/9890317566_3565a3e4a2_b.jpg')">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 mt-5">
                         <div class="text pl-14">
-                            <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+                            <h1>Rabies is responsible for around 60,000 deaths worldwide each year. We can stop this.</span></h1>
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
                                 <a href="#" class="btn primary">Login</a>
@@ -97,7 +96,7 @@
                 <div class="section-title">
                     <h2>We Are Always Ready to Help You & Your Family</h2>
                     <img class="m-auto" src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
         </div>
@@ -109,7 +108,7 @@
                         <i class="icofont icofont-ambulance-cross"></i>
                     </div>
                     <h3>Emergency Help</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <p class="text-white">Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -120,7 +119,7 @@
                         <i class="icofont icofont-medical-sign-alt"></i>
                     </div>
                     <h3>Enriched Pharmecy</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <p class="text-white">Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
                 </div>
                 <!-- End Single features -->
             </div>

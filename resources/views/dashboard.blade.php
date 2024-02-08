@@ -54,7 +54,7 @@
                 <h1 class="font-bold text-2xl text-gray-800 border-l-8 border-blue-400 pl-2"> Patient's Location on map</h1>
             </div>
 
-            <div id="map" style="height: 500px;" class="w-full"></div>
+            <div id="map" style="height: 500px;" class="w-full z-0"></div>
            
         </div>
 

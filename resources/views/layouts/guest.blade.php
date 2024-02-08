@@ -28,10 +28,13 @@
             </div>
         </div>
         
+        <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+
          {{-- scripts --}}
          <script src="{{ asset('font-awesome/all.min.js') }}"></script>
         {{-- flowbite --}}
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
+
 
         @yield('scripts')
     </body>

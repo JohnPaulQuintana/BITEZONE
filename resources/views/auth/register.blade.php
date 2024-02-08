@@ -89,13 +89,18 @@
                         <input type="password" name="password_confirmation" id="password_confirmation" class="border-l-8 border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required>
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
+                    <div>
+                        <label for="coordinates" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location Sharing</label>
+                        <input type="text" name="coordinates" id="coordinates" readonly class="border-l-8 border-blue-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required>
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    </div>
                 </div>
 
                 
                 <div class="flex gap-5">
                     {{-- <a href="{{ route('home') }}" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Back to home</a> --}}
-                    <input type="submit" name="patient" value="Patient" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    <input type="submit" name="clinic" value="Clinic" class="w-full text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <input type="submit" name="type" value="Patient" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <input type="submit" name="type" value="Clinic" class="w-full text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 </div>
                 <p class="text-sm font-light text-gray-700 dark:text-gray-500">
                     Already have an account? <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-700 border-l-4 pl-1 border-blue-500">Login here</a>
@@ -108,6 +113,12 @@
 
 @section('scripts')
     <script>
-        console.log('registration')
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                $('#coordinates').val(`${lat},${long}`)
+            })
+        }
     </script>
 @endsection

@@ -16,7 +16,10 @@ export default {
             },
             fontFamily: {
                 Rubik: ['Rubik Doodle Shadow'],
-                Protest: ['Protest Riot']
+                Protest: ['Protest Riot'],
+                Paytone: ['Paytone One'],
+                Oswald: ['Oswald'],
+                Lexend: ['Lexend']
             }
         },
     },

@@ -24,7 +24,7 @@
             </div> --}}
 
             <div class="w-full sm:max-w-4xl mt-6 px-6 py-4 overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+                @yield('contents')
             </div>
         </div>
         
@@ -32,5 +32,7 @@
          <script src="{{ asset('font-awesome/all.min.js') }}"></script>
         {{-- flowbite --}}
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
+
+        @yield('scripts')
     </body>
 </html>

@@ -56,7 +56,7 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-red-500 md:text-2xl dark:text-white">
                     Login account
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="{{ route('register') }}" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="grid gap-6 md:grid-cols-1">
                         
@@ -74,8 +74,10 @@
                         
                     </div>
 
-                    
-                    <button type="submit" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login</button>
+                    <div class="flex justify-between gap-2 rounded-lg text-center">
+                        <a href="{{ route('home') }}" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Back to home</a>
+                        <button type="submit" class="w-full text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Login</button>
+                    </div>
                     <p class="text-sm font-light text-gray-700 dark:text-gray-500">
                         You don't have an account? <a href="{{ route('register') }}" class="font-medium text-red-600 hover:underline dark:text-red-700">Register here</a>
                     </p>

@@ -64,7 +64,7 @@
 <!--/ End Slider Area -->
 
 {{-- location --}}
-<section class="Location section">
+<section class="Location section" id="location">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -52,7 +52,8 @@
         {{-- flowbite --}}
         <link rel="stylesheet" href="{{ asset('flowbite/flowbite.min.css') }}">
 
-        @vite('resources/css/app.css')
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         
         {{-- xustom css --}}
         {{-- <style>
@@ -146,12 +147,20 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-                                            
-											<li class="active"><a href="#">Home</a></li>
-											<li><a href="#">Location </a></li>
-											<li><a href="#services">Services </a></li>
-											<li><a href="#">About</a></li>
-											<li><a href="#">Register</a></li>
+                                            @if (Route::has('login'))
+                                                @auth
+                                                    <li class="active"><a href="#">Back to dashboard</a></li>
+                                                    @else
+                                                    <li class="active"><a href="#">Home</a></li>
+                                                    <li><a href="#location">Location </a></li>
+                                                    <li><a href="#services">Services </a></li>
+                                                    @if (Route::has('register'))
+                                                        <li><a id="register" data-modal-target="register-modal" class="cursor-pointer">Register</a></li>    
+                                                    @endif
+                                                    
+                                                @endauth
+                                                
+                                            @endif
 										</ul>
 									</nav>
 								</div>
@@ -171,6 +180,8 @@
 		<!-- End Header Area -->
 
        @yield('contents')
+
+       @include('popups.register')
 
 
         {{-- scripts --}}
@@ -219,8 +230,65 @@
         {{-- box-icons --}}
         <script src="{{ asset('box-icons/boxicons.js') }}"></script>
 
+         {{-- scripts --}}
+         <script src="{{ asset('font-awesome/all.min.js') }}"></script>
+
         {{-- flowbite --}}
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
+
+
+        {{-- custom js --}}
+        <script>
+            $(document).ready(function(){
+                // set the modal menu element
+                const $targetEl = document.getElementById('register-modal');
+                let modal;
+                // options with default values
+                const options = {
+                    placement: 'bottom-right',
+                    backdrop: 'static',
+                    backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+                    closable: false,
+                    onHide: () => {
+                        console.log('modal is hidden');
+                    },
+                    onShow: () => {
+                        console.log('modal is shown');
+                    },
+                    onToggle: () => {
+                        console.log('modal has been toggled');
+                    }
+                };
+
+                // open Register modal
+                $(document).on('click', '#register', function(){
+                   
+                    modal = new Modal($targetEl, options);
+                    // show the modal
+                    modal.show();
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var lat = position.coords.latitude;
+                            var long = position.coords.longitude;
+                            $('#coordinates').val(`${lat},${long}`)
+                        })
+                    }
+
+                })
+
+                // close register modal
+                $(document).on('click', '#register-close', function(){
+                   
+                    modal = new Modal($targetEl, options);
+                    // show the modal
+                    modal.hide();
+                })
+
+                
+            })
+        </script>
+
         {{-- @yield('scripts') --}}
     </body>
 </html>

@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\locationController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\locationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/location', [locationController::class, 'location'])->name('location');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
+Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 require __DIR__.'/auth.php';

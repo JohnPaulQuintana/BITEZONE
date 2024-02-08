@@ -1,7 +1,7 @@
 @extends('welcome')
 
 @section('contents')
-    <div class="bg-center bg-cover bg-[url('https://www.speeli.com/wp-content/uploads/2023/03/JAN23-Why-are-Hospitals-White.jpg')] bg-gray-600 bg-blend-multiply pb-24">
+    <div class="bg-center bg-cover bg-[url('https://www.speeli.com/wp-content/uploads/2023/03/JAN23-Why-are-Hospitals-White.jpg')] bg-gray-600 bg-blend-multiply pb-28">
         <div class="pt-20 text-center text-7xl font-Paytone text-white drop-shadow-2xl">
             <h1>SERVICES</h1>
         </div>

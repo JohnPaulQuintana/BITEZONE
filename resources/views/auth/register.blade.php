@@ -14,8 +14,8 @@
                 {{-- <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"> --}}
                 <span class="border-b-2 border-red-500">Patient's</span>   
             </a>
-            <a href="#" class="flex items-center text-2xl font-semibold text-gray-700 dark:text-white hover:text-blue-500">
-                <i class="fa-solid fa-user-doctor fa-2xl h-8 mr-2 text-blue-400"></i>
+            <a href="#" class="flex items-center text-2xl font-semibold text-gray-700 dark:text-white hover:text-blue-700">
+                <i class="fa-solid fa-user-doctor fa-2xl h-8 mr-2 text-blue-700"></i>
                 {{-- <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"> --}}
                 <span class="border-b-2 border-blue-400">Clinic</span>   
             </a>

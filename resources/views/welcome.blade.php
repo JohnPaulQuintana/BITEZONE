@@ -109,7 +109,7 @@
                                                     <li><a href="#location">Location </a></li>
                                                     <li><a href="#services">Services </a></li>
                                                     @if (Route::has('register'))
-                                                        <li><a id="register" data-modal-target="register-modal" class="cursor-pointer">Register</a></li>    
+                                                        <li><a id="register" data-modal-target="register-modal" data-modal-toggle="register-modal" class="cursor-pointer">Register</a></li>    
                                                     @endif
                                                     
                                                 @endauth
@@ -195,7 +195,7 @@
         <script>
             $(document).ready(function(){
                 // set the modal menu element
-                const $targetEl = document.getElementById('register-modal');
+                let $targetEl = document.getElementById('register-modal');
                 let modal;
                 // options with default values
                 const options = {
@@ -205,6 +205,7 @@
                     closable: false,
                     onHide: () => {
                         console.log('modal is hidden');
+                        location.reload();
                     },
                     onShow: () => {
                         console.log('modal is shown');

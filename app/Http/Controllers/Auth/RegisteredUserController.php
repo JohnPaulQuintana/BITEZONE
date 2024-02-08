@@ -30,6 +30,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request);
         $request->validate([
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
@@ -40,10 +41,13 @@ class RegisteredUserController extends Controller
             'username' => ['required', 'string', 'lowercase', 'max:255', 'unique:'.User::class],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'coordinates' => ['required'],
         ]);
 
         $user = User::create([
-            'role' => 0,//default
+            'role' => $request->type == 'Patient' ? 0 : 1,//default 1: clinic
+            'lat' => explode(',', $request->coordinates)[0],
+            'long' => explode(',', $request->coordinates)[1],
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,

@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\locationController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/location', [locationController::class, 'location'])->name('location');
+Route::get('/services', [ServiceController::class, 'services'])->name('services');
 
 require __DIR__.'/auth.php';

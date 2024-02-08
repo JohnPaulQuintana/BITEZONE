@@ -48,7 +48,7 @@
                             @else
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-location-dot"></i> <a href="{{ route('location') }}"> Location</a></li>
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-house"></i> <a href="{{ route('home') }}">Home</a></li>
-                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital-user"></i> Services</li>
+                            <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital-user"></i> <a href="{{ route('services') }}">Services</a></li>
                             <li class="cursor-pointer hover:text-red-200 p-2"><i class="fa-solid fa-hospital"></i> About</li>
                             <li class="cursor-pointer bg-white text-red-400 rounded-md hover:text-red-700 p-2 border">
                                 @if (Route::has('register'))

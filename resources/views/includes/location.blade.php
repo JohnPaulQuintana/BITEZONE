@@ -3,15 +3,8 @@
 @section('contents')
     <div class="grid pt-20 h-auto p-4 sm:ml-64">
         <div id="list">
-            <!-- <ul class="gap-8 text-xl font-mono font-bold">
-                <li class="cursor-pointer hover:text-red-200 p-2"><a href="{{ url('/dashboard') }}">Mariveles District Hospital</a></li>
-                <li class="cursor-pointer hover:text-red-200 p-2"><a href="{{ route('location') }}">Mariveles Main Health Center</a></li>
-                <li class="cursor-pointer hover:text-red-200 p-2"><a href="{{ route('home') }}">Mariveles Health Service Cooperative Hospital</a></li>
-                <li class="cursor-pointer hover:text-red-200 p-2">Bepza Medical Center</li>
-                <li class="cursor-pointer hover:text-red-200 p-2">Brgy. Maligaya Health Center</li>
-                <li class="cursor-pointer hover:text-red-200 p-2">Poblacion Health Center</li>
-            </ul> -->
-        
+            
+
             <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center fixed z-10 p-2 mt-16 ms-3 text-sm bg-red-500 text-white rounded-lg sm:hidden hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                 {{-- <span class="sr-only">Open sidebar</span> --}}
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -95,17 +88,21 @@
                     </div>
                 </div>
             </aside>
+
             <div class="h-fit ml-20 mb-4 rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
             <div class="p-2">
                 <h1>Most animal bite site map</h1>
             </div>
+
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.8184012056404!2d120.49263457169238!3d14.437626761837468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339618ceba3684b5%3A0xff96824b50d2abf9!2sMariveles%20District%20Hospital!5e0!3m2!1sen!2sph!4v1707306900886!5m2!1sen!2sph" 
-                width="1600" 
-                height="743" 
+                width="1200" 
+                height="580" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
         </div>
         </div>     
     </div> 

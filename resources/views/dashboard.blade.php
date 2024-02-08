@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('contents')
+
     <div class="p-4 sm:ml-64">
         {{-- card --}}
         <div class="p-4 mt-10 dark:border-gray-700">
@@ -48,15 +49,17 @@
         </div>
 
         <div class="h-fit mb-4 rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
+
             <div class="p-2">
                 <h1 class="font-bold text-2xl text-gray-800 border-l-8 border-blue-400 pl-2"> Patient's Location on map</h1>
             </div>
+
             <div id="map" style="height: 500px;" class="w-full"></div>
            
         </div>
 
     </div>
-    </div>
+    
 @endsection
 
 @section('scripts')

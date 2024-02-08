@@ -19,8 +19,9 @@
                         d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z" />
                 </svg>
 
-                <div
-                    class="absolute block w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-0.5 start-2.6 dark:border-gray-900">
+                <div id="dot"
+                    class="absolute hidden w-3 h-3 bg-blue-500 border-2 border-white rounded-full -top-0.5 start-2.6 dark:border-gray-900">
+                    
                 </div>
             </button>
 
@@ -32,8 +33,9 @@
                     class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
                     Notifications
                 </div>
-                <div class="divide-y divide-gray-100 dark:divide-gray-700">
-                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+
+                <div class="divide-y divide-gray-100 dark:divide-gray-700" id="notif-container">
+                    {{-- <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
                             <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-1.jpg"
                                 alt="Jese image">
@@ -54,11 +56,12 @@
                                 up? All set for the presentation?"</div>
                             <div class="text-xs text-blue-600 dark:text-blue-500">a few moments ago</div>
                         </div>
-                    </a>
+                    </a> --}}
                     <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
-                            <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-2.jpg"
-                                alt="Joseph image">
+                            <i class="fa-solid fa-square-xmark rounded-full text-red-500 w-11 h-11"></i>
+                            {{-- <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-2.jpg"
+                                alt="Joseph image"> --}}
                             <div
                                 class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-800">
                                 <svg class="w-2 h-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -70,13 +73,11 @@
                         </div>
                         <div class="w-full ps-3">
                             <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                    class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span> and <span
-                                    class="font-medium text-gray-900 dark:text-white">5 others</span> started following
-                                you.</div>
+                                    class="font-semibold text-gray-900 dark:text-white">You don't have a notification.</div>
                             <div class="text-xs text-blue-600 dark:text-blue-500">10 minutes ago</div>
                         </div>
                     </a>
-                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    {{-- <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
                             <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-3.jpg"
                                 alt="Bonnie image">
@@ -96,8 +97,8 @@
                                 story. See it and view more stories.</div>
                             <div class="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
                         </div>
-                    </a>
-                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </a> --}}
+                    {{-- <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
                             <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-4.jpg"
                                 alt="Leslie image">
@@ -117,8 +118,8 @@
                                     href="#">@bonnie.green</span> what do you say?</div>
                             <div class="text-xs text-blue-600 dark:text-blue-500">1 hour ago</div>
                         </div>
-                    </a>
-                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    </a> --}}
+                    {{-- <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
                             <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-5.jpg"
                                 alt="Robert image">
@@ -137,9 +138,9 @@
                                 new video: Glassmorphism - learn how to implement the new design trend.</div>
                             <div class="text-xs text-blue-600 dark:text-blue-500">3 hours ago</div>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
-                <a href="#"
+                {{-- <a href="#"
                     class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
                     <div class="inline-flex items-center ">
                         <svg class="w-4 h-4 me-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -149,7 +150,7 @@
                         </svg>
                         View all
                     </div>
-                </a>
+                </a> --}}
             </div>
 
         </div>

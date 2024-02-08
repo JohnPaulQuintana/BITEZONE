@@ -38,6 +38,7 @@
             </main>
         </div>
 
+        <script src="{{ asset('jquery/jquery.min.js') }}"></script>
         {{-- scripts --}}
         <script src="{{ asset('font-awesome/all.min.js') }}"></script>
 
@@ -47,6 +48,7 @@
         {{-- flowbite --}}
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
         @yield('scripts')
     </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NotifyEvent;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -60,10 +61,23 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $newUser = [
+            'id' => $user->id,
+            'role' => $user->role,
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'middlename' => $user->middlename,
+        ];
+        event(new NotifyEvent($newUser));
+        
+
         event(new Registered($user));
+
+        
 
         Auth::login($user);
 
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }

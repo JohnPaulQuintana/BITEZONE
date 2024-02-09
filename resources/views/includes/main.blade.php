@@ -68,9 +68,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Are Always Ready to Help You & Your Family</h2>
+                    <h2>Rural Health Unit in Mariveles Bataan</h2>
                     <img class="m-auto" src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Find the nearest Rural Health Unit here!</p>
                 </div>
             </div>
         </div>
@@ -78,7 +78,13 @@
             <div class="col-lg-12 col-12 border text-center">
                 <!-- Start Single features -->
                 <div class="single-features p-20">
-                    <h1>Render a Map here</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7727.7735419001!2d120.4838056169495!3d14.433688323666903!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339618ceba3684b5%3A0xff96824b50d2abf9!2sMariveles%20District%20Hospital!5e0!3m2!1sen!2sph!4v1707469213546!5m2!1sen!2sph" 
+                    width="1500" 
+                    height="750" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -199,7 +205,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Offer Different Services To Improve Your Health</h2>
+                    <h2>Different Services To Improve Your Health</h2>
                     <img src="img/section-img.png" class="m-auto" alt="#">
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
@@ -210,7 +216,7 @@
                 <!-- Start Single Service -->
                 <div class="single-service">
                     <i class="icofont icofont-prescription"></i>
-                    <h4><a href="service-details.html">General Treatment</a></h4>
+                    <h4><a href="service-details.html">Consultation</a></h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
                 </div>
                 <!-- End Single Service -->
@@ -218,8 +224,8 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Service -->
                 <div class="single-service">
-                    <i class="icofont icofont-tooth"></i>
-                    <h4><a href="service-details.html">Teeth Whitening</a></h4>
+                    <i class="icofont-injection-syringe"></i>
+                    <h4><a href="service-details.html">Anti-Rabies</a></h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
                 </div>
                 <!-- End Single Service -->
@@ -227,8 +233,8 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Service -->
                 <div class="single-service">
-                    <i class="icofont icofont-heart-alt"></i>
-                    <h4><a href="service-details.html">Heart Surgery</a></h4>
+                    <i class="icofont-medicine"></i>
+                    <h4><a href="service-details.html">Medicine</a></h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
                 </div>
                 <!-- End Single Service -->
@@ -236,26 +242,8 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Service -->
                 <div class="single-service">
-                    <i class="icofont icofont-listening"></i>
-                    <h4><a href="service-details.html">Ear Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-eye-alt"></i>
-                    <h4><a href="service-details.html">Vision Problems</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-blood"></i>
-                    <h4><a href="service-details.html">Blood Transfusion</a></h4>
+                    <i class="icofont-teacher"></i>
+                    <h4><a href="service-details.html">Free Seminar</a></h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
                 </div>
                 <!-- End Single Service -->
@@ -272,7 +260,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Keep up with Our Most Recent Medical News.</h2>
+                    <h2>Did you know?</h2>
                     <img src="img/section-img.png" class="m-auto" alt="#">
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
@@ -283,12 +271,12 @@
                 <!-- Single Blog -->
                 <div class="single-news">
                     <div class="news-head">
-                        <img src="img/blog1.jpg" alt="#">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/world-rabies-day-promo-template-design-4bf09384e69621baa0200c0946637c62_screen.jpg?ts=1600973558" alt="#">
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">22 Aug, 2020</div>
-                            <h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
+                            <div class="date">September 28</div>
+                            <h2><a href="blog-single.html">Rabies Awareness</a></h2>
                             <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
                         </div>
                     </div>
@@ -299,12 +287,12 @@
                 <!-- Single Blog -->
                 <div class="single-news">
                     <div class="news-head">
-                        <img src="img/blog2.jpg" alt="#">
+                        <img src="https://sacoronavirus.co.za/wp-content/uploads/2023/09/1080.jpg" alt="#">
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">15 Jul, 2020</div>
-                            <h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
+                            <div class="date">September 25</div>
+                            <h2><a href="blog-single.html">Rabies Awareness</a></h2>
                             <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
                         </div>
                     </div>
@@ -315,12 +303,12 @@
                 <!-- Single Blog -->
                 <div class="single-news">
                     <div class="news-head">
-                        <img src="img/blog3.jpg" alt="#">
+                        <img src="https://www.maxicare.com.ph/wp-content/uploads/2022/10/latest-announcements-rabies-vaccine-guidelines-thumbnail-c.png" alt="#">
                     </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">05 Jan, 2020</div>
-                            <h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
+                            <div class="date">February 2024</div>
+                            <h2><a href="blog-single.html">Rabies Treatment</a></h2>
                             <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
                         </div>
                     </div>

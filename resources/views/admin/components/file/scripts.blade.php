@@ -41,3 +41,6 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+     {{-- map js --}}
+     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

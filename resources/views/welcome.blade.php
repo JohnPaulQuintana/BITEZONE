@@ -150,7 +150,6 @@
 
 
     {{-- scripts --}}
-    {{-- <script src="{{ asset('font-awesome/all.min.js') }}"></script> --}}
 
     <!-- jquery Min JS -->
     <script src="js/jquery.min.js"></script>
@@ -207,7 +206,7 @@
     {{-- custom js --}}
     <script>
         var user = @json(Auth::user());
-        console.log(user)
+        // console.log(user)
         $(document).ready(function() {
             // Access CSRF token in JavaScript
             const csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -280,7 +279,7 @@
                                         $('#coordinates-error').text('')
                                     }, 5000);
                                 } else {
-                                    // location.reload()
+                                    location.reload()
                                 }
                             })
                             break;

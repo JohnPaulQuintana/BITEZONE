@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="waves-effect">
+                <a href="{{ route('announcement.public') }}" class="waves-effect">
                     <i class="ri-calendar-event-fill text-primary"></i>
                     <span>Announcements</span>
                 </a>

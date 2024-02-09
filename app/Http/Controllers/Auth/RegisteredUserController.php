@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\NotifyEvent;
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -73,12 +74,17 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        // stored notif for new registered users
         
 
         Auth::login($user);
 
         switch ($user->role) {
             case 0:
+                $notifyAdmin = Notification::create([
+                    'fullname' => $user->firstname.' '.$user->lastname,
+                    'action' => "A new patient has been registered"
+                ]);
                 return redirect(RouteServiceProvider::PATIENT_DASHBOARD);
                 
             

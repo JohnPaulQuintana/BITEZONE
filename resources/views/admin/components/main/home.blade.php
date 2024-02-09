@@ -28,7 +28,9 @@
         <div class="col-xl-4">
             <div class="card mb-0">
                 <div class="card-body">
-                    <div class="h-50" id="calendar" style="height: 30vh;"></div>
+                    <div class="" id="map" style="height: 600px;">
+                   
+                    </div>
                 </div>
             </div>
         </div> <!-- end col -->

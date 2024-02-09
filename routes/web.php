@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\locationController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,18 +22,25 @@ use App\Http\Controllers\locationController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware(['auth', 'verified'])->group(function () {
+    // dashboard admin
     Route::get('/dashboard', [AdminController::class, 'admin'])->name('admin.dashboard');
+
+    // notification admin
+    Route::get('/notification', [NotificationController::class, 'getNotification'])->name('notification');
+    Route::post('/notification-update', [NotificationController::class, 'updateNotification'])->name('update.notification');
+
+    // patients location for admin
+    Route::get('/patient-coordinates',[locationController::class, 'location'])->name('patient.location');
     Route::get('/patient', [AdminController::class, 'patient'])->name('patient.dashboard');
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/announcement-public', [AdminController::class, 'announcementPatient'])->name('announcement.public');
 Route::get('/location', [locationController::class, 'location'])->name('location');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
 Route::get('/about', [AboutController::class, 'about'])->name('about');

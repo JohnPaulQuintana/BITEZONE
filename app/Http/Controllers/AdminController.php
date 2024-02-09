@@ -12,4 +12,8 @@ class AdminController extends Controller
     public function patient(){
         return view('patient.components.main.home');
     }
+
+    public function announcementPatient(){
+        return view('patient.components.main.announcement');
+    }
 }

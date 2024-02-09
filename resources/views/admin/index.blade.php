@@ -58,5 +58,51 @@
     </div>
 
     @yield('scripts')
+
+    <script>
+        $(document).ready(function(){
+            $('.noti-dot').css({'display': 'none'})
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('38d8287d081fbd212033', {
+                cluster: 'ap1'
+            });
+
+            var channel = pusher.subscribe('notify-admin');
+            channel.bind('initialize-notif', function(data) {
+                // notif: firstname: "john paul"
+                // id: 10
+                // lastname: "Yulde"
+                // middlename: "yulde"
+                console.log(data.notif);
+                var renderNotif = ''
+
+                // means new patients is registered
+                if (data.notif.role == 0) {
+                    renderNotif += `
+                        <a class="text-reset notification-item">
+                            <div class="d-flex">
+                                <img src="{{ asset('assets/images/users/avatar-1.jpg') }}"
+                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                <div class="flex-1">
+                                    <h6 class="mb-1 text-primary">${data.notif.firstname} ${data.notif.lastname}</h6>
+                                    <div class="font-size-12 text-muted">
+                                        <p class="mb-1">has registered to bitezone</p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 minutes ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    `
+
+
+                }
+                $('.notif-container').html(renderNotif)
+                $('.noti-dot').css({'display': 'flex'})
+            });
+
+        })
+    </script>
 </body>
 </html>

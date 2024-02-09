@@ -24,8 +24,20 @@
             </li>
             <li>
                 <a href="#" class="waves-effect">
-                    <i class="ri-file-list-3-line"></i>
+                    <i class="ri-file-list-3-line text-info"></i>
                     <span>Consultation form</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="waves-effect">
+                    <i class="ri-user-2-fill text-danger"></i>
+                    <span>Patient's Record</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="waves-effect">
+                    <i class="ri-calendar-event-fill text-primary"></i>
+                    <span>Seminar's</span>
                 </a>
             </li>
             {{-- <li>

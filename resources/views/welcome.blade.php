@@ -227,7 +227,7 @@
                     location.reload();
                 },
                 onShow: (modal) => {
-                    console.log(modal._instanceId);
+                    console.log(modal);
                     switch (modal._instanceId) {
 
                         case 'login-modal':
@@ -280,7 +280,7 @@
                                         $('#coordinates-error').text('')
                                     }, 5000);
                                 } else {
-                                    location.reload()
+                                    // location.reload()
                                 }
                             })
                             break;
@@ -495,11 +495,17 @@
 
                 $(formId).submit(function(event) {
                     event.preventDefault();
-
+                    // Determine which button was clicked
+                    var userType = $(this).find('input[type=submit]:focus').val();
+                    // Include userType in the data
+                    var formData = new FormData(this);
+                    formData.append('type', userType);
                     $.ajax({
                         type: type, // or 'GET' depending on your form method
                         url: endpoint,
-                        data: $(this).serialize() + additionalData,
+                        data: formData,
+                        processData: false,
+                        contentType: false,
                         headers: {
                             'X-CSRF-Token': csrfToken,
                         },

@@ -29,7 +29,7 @@
     </div>
 
     <div class="d-flex">
-        {{-- notification --}}
+        
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,11 +65,10 @@
             </div>
         </div>
 
-        {{-- users profile --}}
         <div class="dropdown d-inline-block user-dropdown">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/default-admin.png') }}"
+                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}"
                     alt="Header Avatar">
                 <span class="d-none d-xl-inline-block ms-1 text-primary">{{ Auth::user()->firstname }}</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>

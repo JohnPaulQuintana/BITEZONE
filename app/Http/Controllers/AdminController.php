@@ -10,6 +10,6 @@ class AdminController extends Controller
         return view('admin.components.main.home');
     }
     public function patient(){
-        return view('patient.index');
+        return view('patient.components.main.home');
     }
 }

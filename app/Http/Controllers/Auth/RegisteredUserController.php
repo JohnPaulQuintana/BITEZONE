@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'role' => $request->type == 'Patient' ? 0 : 1,//default 1: clinic
+            'role' => $request->type === 'Patient' ? 0 : 1,//default 1: clinic
             'lat' => explode(',', $request->coordinates)[0],
             'long' => explode(',', $request->coordinates)[1],
             'firstname' => $request->firstname,
@@ -77,7 +77,16 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        switch ($user->role) {
+            case 0:
+                return redirect(RouteServiceProvider::PATIENT_DASHBOARD);
+                
+            
+            default:
+                return redirect(RouteServiceProvider::ADMIN_DASHBOARD);
+                
+        }
         
-        return redirect(RouteServiceProvider::HOME);
+       
     }
 }

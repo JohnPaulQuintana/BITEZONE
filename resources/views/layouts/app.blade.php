@@ -10,17 +10,11 @@
          {{-- image --}}
          <link rel="stylesheet" href="{{ asset('images/logo.png') }}">
 
+         @yield('links')
 
-         {{-- font-awesome --}}
-         <link rel="stylesheet" href="{{ asset('font-awesome/all.min.css') }}">
-         
-         {{-- box-icons --}}
-         <link rel="stylesheet" href="{{ asset('box-icons/boxicons.min.css') }}">
-
-         {{-- flowbite --}}
-         <link rel="stylesheet" href="{{ asset('flowbite/flowbite.min.css') }}">
-
-         
+         <!-- DataTables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -39,6 +33,7 @@
         </div>
 
         <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+
         {{-- scripts --}}
         <script src="{{ asset('font-awesome/all.min.js') }}"></script>
 
@@ -49,6 +44,10 @@
         <script src="{{ asset('flowbite/flowbite.min.js') }}"></script>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+        {{-- datatables --}}
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
         @yield('scripts')
     </body>
 </html>

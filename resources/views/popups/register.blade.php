@@ -24,7 +24,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5 space-y-4" method="POST" action="{{ route('register') }}">
+            <form class="p-4 md:p-5 space-y-4" method="POST" id="register-form">
                 @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     {{-- first name --}}
@@ -33,8 +33,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
                         <input type="text" name="firstname" id="first_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
+                            >
+                            <p id='firstname-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- last name --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -42,17 +42,17 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
                         <input type="text" name="lastname" id="last_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+                            >
+                            <p id='lastname-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- middle name --}}
                     <div class="col-span-2 sm:col-span-1">
                         <label for="middle_name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Middle Name</label>
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Middle Name (optional)</label>
                         <input type="text" name="middlename" id="middle_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             >
-                            <x-input-error :messages="$errors->get('middlename')" class="mt-2" />
+                            <p id='middlename-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- Age --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -60,8 +60,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Age</label>
                         <input type="number" name="age" id="age"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('middlename')" class="mt-2" />
+                            >
+                            <p id='age-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- address --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -69,8 +69,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
                         <input type="text" name="address" id="address"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                            >
+                            <p id='address-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- contact_no --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -78,8 +78,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact no.</label>
                         <input type="tel" name="contact_no" id="contact_no"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('contact_no')" class="mt-2" />
+                            >
+                            <p id='contact_no-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- Gender --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -87,12 +87,12 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
                         <select name="gender" id="gender"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected>Select a gender</option>
+                            <option value="">Select a gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="others">Other's</option>
                         </select>
-                        <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+                        <p id='gender-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- Username --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -100,8 +100,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
                         <input type="text" name="username" id="username"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                            >
+                            <p id='username-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- email --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -109,8 +109,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                         <input type="email" name="email" id="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            >
+                            <p id='email-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- password --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -118,8 +118,8 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                         <input type="password" name="password" id="password"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            >
+                            <p id='password-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- password_confirmation --}}
                     <div class="col-span-2 sm:col-span-1">
@@ -127,17 +127,17 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
                         <input type="password" name="password_confirmation" id="password_confirmation"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="">
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            >
+                            <p id='password_confirmation-error' class="mt-2 text-red-500" ></p>
                     </div>
                     {{-- coordinates --}}
                     <div class="col-span-2 sm:col-span-1">
                         <label for="coordinates"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordinates</label>
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Coordinates (lat,lon)</label>
                         <input type="text" name="coordinates" id="coordinates"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            required="" readonly>
-                            <x-input-error :messages="$errors->get('coordinates')" class="mt-2" />
+                             readonly>
+                            <p id='coordinates-error' class="mt-2 text-red-500"></p>
                     </div>
                    
                 </div>

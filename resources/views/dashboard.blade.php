@@ -1,5 +1,16 @@
 @extends('layouts.app')
 
+@section('links')
+    {{-- font-awesome --}}
+    <link rel="stylesheet" href="{{ asset('font-awesome/all.min.css') }}">
+         
+    {{-- box-icons --}}
+    <link rel="stylesheet" href="{{ asset('box-icons/boxicons.min.css') }}">
+
+    {{-- flowbite --}}
+    <link rel="stylesheet" href="{{ asset('flowbite/flowbite.min.css') }}">
+@endsection
+
 @section('contents')
     <div class="p-4 sm:ml-64">
         {{-- card --}}
@@ -47,13 +58,23 @@
             </div>
         </div>
 
-        <div class="h-fit mb-4 rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
-
-            <div class="p-2">
-                <h1 class="font-bold text-2xl text-gray-800 border-l-8 border-blue-400 pl-2"> Patient's Location on map</h1>
+        <div class="grid grid-cols-1 gap-5 h-fit mb-4 dark:bg-gray-800 overflow-hidden">
+            <div class="border rounded-md bg-white">
+                <div class="p-2">
+                    <h3 class="font-bold text-xl text-gray-600 border-l-8 border-blue-400 pl-2"> Consultation Record</h3>
+                </div>
+                <div class="p-5">
+                    <table id="rejected-table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"></table>
+                </div>
             </div>
 
-            <div id="map" style="height: 500px;" class="w-full z-0"></div>
+            {{-- <div>
+                <div class="p-2">
+                    <h1 class="font-bold text-2xl text-gray-500 border-l-8 border-blue-400 pl-2"> Patient's Location on map</h1>
+                </div>
+    
+                <div id="map" style="height: 500px;" class="w-full z-0"></div>
+            </div> --}}
 
         </div>
 
@@ -63,7 +84,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-           
+
             // Enable pusher logging - don't include this in production
             Pusher.logToConsole = true;
 
@@ -79,8 +100,8 @@
                 // middlename: "yulde"
                 console.log(data.notif);
                 var renderNotif = ''
-               
-                if(data.notif.role == 0){
+
+                if (data.notif.role == 0) {
                     renderNotif += `<a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="flex-shrink-0">
                             <i class="fa-solid fa-user-plus text-blue-500 rounded-full w-11 h-11"></i>
@@ -102,7 +123,7 @@
                         </div>
                     </a>`
 
-                    
+
                 }
                 $('#notif-container').html(renderNotif)
                 $('#dot').removeClass('hidden').addClass('block')
@@ -139,12 +160,12 @@
                     var overpassEndpoint = 'https://overpass-api.de/api/interpreter';
 
                     var query = `[out:json];
-  (
-    node["amenity"="clinic"](around:500,${lat},${long});
-    way["amenity"="clinic"](around:500,${lat},${long});
-    relation["amenity"="clinic"](around:500,${lat},${long});
-  );
-  out center;`;
+                        (
+                            node["amenity"="clinic"](around:500,${lat},${long});
+                            way["amenity"="clinic"](around:500,${lat},${long});
+                            relation["amenity"="clinic"](around:500,${lat},${long});
+                        );
+                        out center;`;
 
                     fetch(overpassEndpoint, {
                             method: 'POST',
@@ -231,6 +252,52 @@
                 console.error("Geolocation is not supported by this browser.");
                 alert('Geolocation is not supported by this browser.');
             }
+
+            function renderTableRecord(){
+                // test data format
+                var dataArray = [
+                    { name: 'John Doe', email: 'john@example.com', age: 25 },
+                    { name: 'Jane Smith', email: 'jane@example.com', age: 30 },
+                    // Add more objects as needed
+                ];
+                
+                $('#rejected-table').DataTable({
+                    data: dataArray,
+                    "order": [],
+                    "columnDefs": [ {
+                    "targets"  : 'no-sort',
+                    "orderable": false,
+                    }],
+
+                    columns: [
+                        
+                        // { 
+                        //     title: 'Name : ',
+                        //     data: null,
+                        //     render: function(data, type, row){
+                        //         return `${row.inventory.product_type}`
+                        //     }
+                        
+                        // },
+                        
+                        { data: 'name', title: 'Name : ' },
+                        { data: 'email', title: 'Email : ' },
+                        { data: 'age', title: 'Age : ' },
+                        
+                    ],
+                    responsive: true,
+                    "initComplete": function (settings, json) {
+                        $(this.api().table().container()).addClass('bs4');
+
+                        // Add class to DataTable elements for styling adjustments
+                        $('#rejected-table_length label').addClass('hidden'); // hide the dropdown option
+                       
+                    },
+                });
+            }
+
+            // init function
+            renderTableRecord()
         })
     </script>
 @endsection

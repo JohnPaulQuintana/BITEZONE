@@ -11,11 +11,11 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="text pl-14">
-                            <h1>RABIES</span></h1>
-                            <p class="text-black">100% vaccine preventable to save lives, to stop transmission.</p>
+                            <h1 class="text-4xl">RABIES</span></h1>
+                            <p class="text-black text-2xl"> <span class="text-blue-400">100% vaccine</span> preventable to save lives, to <span class="text-red-500">stop transmission</span>.</p>
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
-                                <a href="#" class="btn primary">Login</a>
+                                <a href="#" class="btn primary login-btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -30,10 +30,10 @@
                     <div class="col-lg-7">
                         <div class="text pl-14">
                             <h1>RABIES VACCINATION <br> STARTS WITH YOU</span></h1>
-                            <p class="text-black">Don't leave the issue unheard. Do your part and educate the world about it. <br> End rabies. Stay healthy and be safe.</p>
+                            <p class="text-black text-2xl">Don't leave the issue unheard. Do your part and educate the world about it. <br> End rabies. <span class="text-blue-500">Stay healthy</span> and be safe.</p>
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
-                                <a href="#" class="btn primary">Login</a>
+                                <a href="#" class="btn primary login-btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -45,12 +45,15 @@
         <div class="single-slider" style="background-image:url('https://live.staticflickr.com/2864/9890317566_3565a3e4a2_b.jpg')">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-7 mt-5">
+                    <div class="col-lg-7">
                         <div class="text pl-14">
-                            <h1>Rabies is responsible for around 60,000 deaths worldwide each year. We can stop this.</span></h1>
+                            <h1>Rabies causes <span class="text-red-500">60,000 deaths annually</span> worldwide. Let's stop it.</h1>
+
+                            <p class="text-black text-2xl">Rabies, a deadly viral disease transmitted through the saliva of infected animals, remains a significant global health concern, claiming approximately <span class="text-red-500">60,000 lives annually.</span></p>
+
                             <div class="button">
                                 <a href="#" class="btn">Login as guest</a>
-                                <a href="#" class="btn primary">Login</a>
+                                <a href="#" class="btn primary login-btn">Login</a>
                             </div>
                         </div>
                     </div>
@@ -62,25 +65,29 @@
 </section>
 <!--/ End Slider Area -->
 
+
 {{-- location --}}
 <section class="Location section" id="location">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Are Always Ready to Help You & Your Family</h2>
+                    <h2>Welcome to Our Clinic</h2>
                     <img class="m-auto" src="img/section-img.png" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p class="text-2xl">Experience exceptional healthcare tailored to your needs. Our dedicated team offers a range of services in a caring environment. Your well-being is our priority. Visit us today for personalized care that puts you first.</p>
+
                 </div>
+                
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-12 border text-center">
+            <div class="col-lg-12 col-12">
                 <!-- Start Single features -->
-                <div class="single-features p-20">
-                    <h1>Render a Map here</h1>
+                <div class="single-features w-full z-0" id="map" style="height: 600px;">
+                   
                 </div>
                 <!-- End Single features -->
+                
             </div>
            
         </div>
@@ -96,7 +103,7 @@
                 <div class="section-title">
                     <h2>We Are Always Ready to Help You & Your Family</h2>
                     <img class="m-auto" src="img/section-img.png" alt="#">
-                    <p">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
         </div>

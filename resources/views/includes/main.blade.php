@@ -85,14 +85,8 @@
         <div class="row">
             <div class="col-lg-12 col-12">
                 <!-- Start Single features -->
-                <div class="single-features p-20">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7727.7735419001!2d120.4838056169495!3d14.433688323666903!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339618ceba3684b5%3A0xff96824b50d2abf9!2sMariveles%20District%20Hospital!5e0!3m2!1sen!2sph!4v1707469213546!5m2!1sen!2sph" 
-                    width="1500" 
-                    height="750" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="single-features">
+               
                 <div class="single-features w-full z-0" id="map" style="height: 600px;">
                    
                 </div>

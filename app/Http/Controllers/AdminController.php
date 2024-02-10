@@ -16,4 +16,14 @@ class AdminController extends Controller
     public function announcementPatient(){
         return view('patient.components.main.announcement');
     }
+
+    public function dnd(){
+        return view('patient.components.main.dnd');
+    }
+    public function rhu(){
+        return view('patient.components.main.rhu');
+    }
+    public function myAppointment(){
+        return view('patient.components.main.appointment');
+    }
 }

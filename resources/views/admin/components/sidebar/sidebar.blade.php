@@ -22,12 +22,12 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#" class="waves-effect">
                     <i class="ri-file-list-3-line text-info"></i>
                     <span>Consultation form</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="#" class="waves-effect">
                     <i class="ri-user-2-fill text-danger"></i>

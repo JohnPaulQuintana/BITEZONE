@@ -41,3 +41,9 @@
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/fontawesome.min.js"></script>
+
+    {{-- datatables --}}
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>

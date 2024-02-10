@@ -33,7 +33,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // patients location for admin
     Route::get('/patient-coordinates',[locationController::class, 'location'])->name('patient.location');
     Route::get('/patient', [AdminController::class, 'patient'])->name('patient.dashboard');
-
+    Route::get('/rhu', [AdminController::class, 'rhu'])->name('rhu');
+    Route::get('/my-appointment', [AdminController::class, 'myAppointment'])->name('appointment');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -41,6 +42,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::get('/announcement-public', [AdminController::class, 'announcementPatient'])->name('announcement.public');
+Route::get('/dnd-public', [AdminController::class, 'dnd'])->name('dnd.public');
+
+
 Route::get('/location', [locationController::class, 'location'])->name('location');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
 Route::get('/about', [AboutController::class, 'about'])->name('about');

@@ -37,3 +37,5 @@
  <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />

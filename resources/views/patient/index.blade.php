@@ -11,6 +11,12 @@
 
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
+
+    <style>
+        body::-webkit-scrollbar{
+            width: 0;
+        }
+    </style>
 </head>
 <body>
 

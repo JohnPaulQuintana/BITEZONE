@@ -17,19 +17,19 @@
             <li class="menu-title">Menu</li>
 
             <li>
-                <a href="{{ route('admin.dashboard') }}" class="waves-effect">
+                <a href="{{ route('patient.dashboard') }}" class="waves-effect">
                     <i class="ri-dashboard-line"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="waves-effect">
+                <a href="{{ route('appointment') }}" class="waves-effect">
                     <i class="ri-file-list-3-line text-info"></i>
                     <span>My Appointment</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="waves-effect">
+                <a href="{{ route('rhu') }}" class="waves-effect">
                     <i class="ri-user-2-fill text-danger"></i>
                     <span>Rural Health Unit</span>
                 </a>
@@ -37,7 +37,13 @@
             <li>
                 <a href="{{ route('announcement.public') }}" class="waves-effect">
                     <i class="ri-calendar-event-fill text-primary"></i>
-                    <span>Announcements</span>
+                    <span>Event's and Seminar</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('dnd.public') }}" class="waves-effect">
+                    <i class="ri-calendar-check-fill text-warning"></i>
+                    <span>Do's and Don't</span>
                 </a>
             </li>
             

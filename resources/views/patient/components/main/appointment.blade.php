@@ -42,24 +42,27 @@
                 </div>
 
                 <div class="card-body">
-
+    
                     <div class="card mb-3">
-
-                        @for ($i=1;$i<=5;$i++)
-                            <div class="row g-0 mb-2 border rhu" data-id="rhu-1">
+                        @foreach ($rhus as $key => $rhu)
+                            <div class="row g-0 mb-2 border rhu" data-id="{{ $rhu->id }}">
 
                                 <div class="col-md-2 border-start border-light border-5 positio-relative">
-                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">0{{ $i }}</span>
+                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">0{{ $key+1 }}</span>
                                     <img style="height:100%; width:100%;"
-                                        src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1lZGljYWwlMjBjbGluaWN8ZW58MHx8MHx8fDA%3D"
+                                    src="{{ 
+                                        $rhu->clinic
+                                        ? asset('storage/'. $rhu->clinic->clinic_profile)
+                                        : asset('storage/clinics/default.jpg')
+                                    }}"
                                         class="img-fluid" alt="...">
                                 </div>
 
                                 <div class="col-md-2 position-relative border-start border-primary border-5">
                                     <div class="card-body p-1 mt-2">
                                         <h6 class="card-title text-secondary">Name :</h6>
-                                        <h5 class="card-title">DR. John Doe</h5>
-                                        <span class="card-text muted">Doctor abc.</span>
+                                        <h5 class="card-title">{{ $rhu->firstname }} {{ $rhu->lastname }}</h5>
+                                        <span class="card-text muted">{{ $rhu->gender }}</span>
                                     </div>
                                     <div class="position-absolute" style="top: 40px; right:10px">
                                         <i class="fa-solid fa-house-chimney-medical fa-2xl"
@@ -70,8 +73,8 @@
                                 <div class="col-md-2 position-relative border-start border-light border-5">
                                     <div class="card-body p-1 mt-2">
                                         <h6 class="card-title text-secondary">RHU :</h6>
-                                        <h5 class="card-title">Mariveles Clinic Center</h5>
-                                        <p class="card-text muted">Public RHU.</p>
+                                        <h5 class="card-title">{{ $rhu->clinic->clinic }}</h5>
+                                        <p class="card-text muted">{{ $rhu->clinic->type }}</p>
                                     </div>
                                     <div class="position-absolute" style="top: 40px; right:10px">
                                         <i class="fa-solid fa-hospital fa-2xl"
@@ -82,8 +85,8 @@
                                 <div class="col-md-2 position-relative border-start border-light border-5">
                                     <div class="card-body p-1 mt-2">
                                         <h6 class="card-title text-secondary">Role :</h6>
-                                        <h5 class="card-title">Physician</h5>
-                                        <p class="card-text muted">Medical.</p>
+                                        <h5 class="card-title">{{ $rhu->clinic->role }}</h5>
+                                        <p class="card-text muted">{{ $rhu->contact_no }}</p>
                                     </div>
                                     <div class="position-absolute" style="top: 40px; right:10px">
                                         <i class="fa-solid fa-user-doctor fa-2xl"
@@ -93,8 +96,8 @@
                                 <div class="col-md-2 position-relative border-start border-light border-5">
                                     <div class="card-body p-1 mt-2">
                                         <h6 class="card-title text-secondary">Location :</h6>
-                                        <h5 class="card-title">Marivelez, Bataan</h5>
-                                        <p class="card-text muted">ABC Street.</p>
+                                        <h6 class="card-title">{{ $rhu->address }}</h6>
+                                        {{-- <p class="card-text muted">ABC Street.</p> --}}
                                     </div>
                                     <div class="position-absolute" style="top: 40px; right:10px">
                                         <i class="fa-solid fa-map-location-dot fa-2xl"
@@ -103,16 +106,17 @@
                                 </div>
                                 <div class="col-md-2 position-relative border-start border-light border-5">
                                     <div class="card-body g-1" style="display: flex; gap:5px;">
-                                        {{-- <h5 class="card-title">Appoint now</h5> --}}
+        
                                         <div class="mt-3">
-                                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            <a style="cursor: pointer;" data-lat="{{ $rhu->lat }}" data-long="{{ $rhu->long }}" data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Show on the map"
                                                 class="border p-2 border-warning text-warning rounded"><i
                                                     class="fa-solid fa-location-dot fa-2xl"></i></a>
                                         </div>
+
                                         <div class="mt-3">
-                                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                title="Appointment now" class="border p-2 border-primary rounded"><i
+                                            <a style="cursor: pointer;" data-id="{{ $rhu->id }}" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Consultation Form" class="border p-2 border-primary rounded consultation-btn"><i
                                                     class="fa-solid fa-plus fa-2xl"></i></a>
                                         </div>
                                     </div>
@@ -123,7 +127,8 @@
                                 </div>
 
                             </div>
-                        @endfor
+                        @endforeach
+                       
 
                     </div>
 
@@ -131,7 +136,9 @@
             </div>
         </div> <!-- end col -->
 
+        
     </div>
+    @include('patient.components.modals.consultation')
 @endsection
 
 @section('scripts')
@@ -152,6 +159,16 @@
                 }
                 });
             });
+
+            // function to open consulation form
+            function openConsultationForm(){
+                $(document).on('click', '.consultation-btn', function(){
+                    $('#consultation-Modal').modal('show')
+                })
+            }
+
+            // init function 
+            openConsultationForm()
         })
     </script>
 @endsection

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,6 +26,11 @@ class AdminController extends Controller
         return view('patient.components.main.rhu');
     }
     public function myAppointment(){
-        return view('patient.components.main.appointment');
+        $rhu = User::where('role', 1)
+        ->latest()
+        ->with(['clinic'])
+        ->get(['id', 'firstname', 'lastname', 'address', 'lat', 'long', 'gender', 'contact_no']);
+        // dd($rhu);
+        return view('patient.components.main.appointment',['rhus'=>$rhu]);
     }
 }

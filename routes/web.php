@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\locationController;
@@ -37,7 +38,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/my-appointment', [AdminController::class, 'myAppointment'])->name('appointment');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile-patient', [ProfileController::class, 'editPatient'])->name('profile.edit.patient');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile-patient', [ProfileController::class, 'updatePatient'])->name('profile.update.patient');
+
+    Route::patch('/profile-clinic', [ClinicController::class, 'update'])->name('profile.clinic');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

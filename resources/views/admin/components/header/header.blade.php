@@ -69,7 +69,12 @@
         <div class="dropdown d-inline-block user-dropdown">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/default-admin.png') }}"
+                <img class="rounded-circle header-profile-user" 
+                    src="{{ 
+                        Auth::user()->profile
+                        ? asset('storage/'.Auth::user()->profile)
+                        : asset('storage/profiles/default.jpg')
+                    }}" 
                     alt="Header Avatar">
                 <span class="d-none d-xl-inline-block ms-1 text-primary">{{ Auth::user()->firstname }}</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>

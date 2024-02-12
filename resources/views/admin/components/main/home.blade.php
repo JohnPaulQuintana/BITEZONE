@@ -36,7 +36,7 @@
                                     </div>
 
                                     <div class="div">
-                                        <a href="#" class="border border-primary p-2 rounded" style="font-size:18px;"><i class="fa-solid fa-user-plus fa-xl"></i> Add patient</a>
+                                        <a href="#" class="border border-primary p-2 rounded" style="font-size:12px;"><i class="fa-solid fa-user-plus fa-xl"></i> Add patient</a>
                                     </div>
 
                                     <div class="div">
@@ -49,14 +49,13 @@
                                 <div class="card-body">
                 
                                     <div class="card mb-3">
-                
-                                        @for ($i=1;$i<=5;$i++)
-                                            <div class="row g-0 mb-2 border patient" data-id="patient-{{ $i }}">
-                
+                                        {{-- @foreach ($rhus as $rhu) --}}
+                                            <div class="row g-0 mb-2 border patient" data-id="patient-1">
+                    
                                                 <div class="col-md-2 border-start border-light border-5 positio-relative">
-                                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">0{{ $i }}</span>
+                                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">01</span>
                                                     <img style="height:100%; width:100%;"
-                                                        src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1lZGljYWwlMjBjbGluaWN8ZW58MHx8MHx8fDA%3D"
+                                                        src="https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg"
                                                         class="img-fluid" alt="...">
                                                 </div>
                 
@@ -117,7 +116,7 @@
                                                         </div>
                                                         <div class="mt-3">
                                                             <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                title="Appointment now" class="border p-2 border-primary rounded"><i
+                                                                title="Add Records" class="border p-2 border-primary rounded"><i
                                                                     class="fa-solid fa-plus fa-2xl"></i></a>
                                                         </div>
                                                     </div>
@@ -128,7 +127,8 @@
                                                 </div>
                 
                                             </div>
-                                        @endfor
+                                        {{-- @endforeach --}}
+                                       
                 
                                     </div>
                 

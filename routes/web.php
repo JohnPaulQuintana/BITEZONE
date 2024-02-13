@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\locationController;
@@ -36,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/patient', [AdminController::class, 'patient'])->name('patient.dashboard');
     Route::get('/rhu', [AdminController::class, 'rhu'])->name('rhu');
     Route::get('/my-appointment', [AdminController::class, 'myAppointment'])->name('appointment');
+    Route::post('/consultation', [ConsultationController::class, 'processForm'])->name('consultation.form');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/profile-patient', [ProfileController::class, 'editPatient'])->name('profile.edit.patient');

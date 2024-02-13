@@ -57,15 +57,34 @@
     @include('patient.components.files.scripts')
     <script>
         $(document).ready(function(){
+            console.log('connected on profile')
+           
+            var error = @json($errors->all());
             var status = @json(session('status'));
-            if(status != null){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: status,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
+            swalOpen(status)
+
+            function swalOpen(status, error){
+                if(status != null){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: status,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+
+                if(error.length > 0){
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Encountering an error, check your form details",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+
+                
             }
            
                 

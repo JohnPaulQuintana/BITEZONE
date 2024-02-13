@@ -49,21 +49,37 @@
                                 <div class="card-body">
                 
                                     <div class="card mb-3">
-                                        {{-- @foreach ($rhus as $rhu) --}}
-                                            <div class="row g-0 mb-2 border patient" data-id="patient-1">
-                    
+                                        {{--  "id" => 2
+                                        "sender_id" => 23
+                                        "reciever_id" => 1
+                                        "fullname" => "Patient yulde Account"
+                                        "age" => 23
+                                        "sex" => "female"
+                                        "date_submitted" => "2024-02-12"
+                                        "date_of_birth" => "2024-02-06"
+                                        "contact_no" => "09270316605"
+                                        "address" => "SAN JOSE BALANGA CITY BATAAN"
+                                        "comments" => "dwadwadwad"
+                                        "created_at" => "2024-02-13 14:51:04"
+                                        "updated_at" => "2024-02-13 14:51:04" --}}
+                                        @foreach ($consultations as $key => $consultation)
+                                            <div class="row g-0 mb-2 border patient" data-id="{{ $consultation->key }}">
                                                 <div class="col-md-2 border-start border-light border-5 positio-relative">
-                                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">01</span>
+                                                    <span class="badge position-absolute p-2" style="background: rgba(0, 92, 128, 0.432); font-weight:900; font-size:24px; top:5px;left:5px;">{{ $key+1 }}</span>
                                                     <img style="height:100%; width:100%;"
-                                                        src="https://as2.ftcdn.net/v2/jpg/03/31/69/91/1000_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg"
+                                                    src="{{ 
+                                                        $consultation->senderConsultation->profile
+                                                        ? asset('storage/'.$consultation->senderConsultation->profile)
+                                                        : asset('storage/profiles/default.jpg')
+                                                    }}"
                                                         class="img-fluid" alt="...">
                                                 </div>
                 
                                                 <div class="col-md-2 position-relative border-start border-primary border-5">
                                                     <div class="card-body p-1 mt-2">
                                                         <h6 class="card-title text-secondary">Name :</h6>
-                                                        <h5 class="card-title">John Doe</h5>
-                                                        <span class="card-text muted">Quintana.</span>
+                                                        <h5 class="card-title">{{ $consultation->fullname }}</h5>
+                                                        <span class="card-text muted">Age : {{ $consultation->age }}</span>
                                                     </div>
                                                     <div class="position-absolute" style="top: 40px; right:10px">
                                                         <i class="fa-solid fa-bed fa-2xl"
@@ -97,8 +113,8 @@
                                                 <div class="col-md-2 position-relative border-start border-light border-5">
                                                     <div class="card-body p-1 mt-2">
                                                         <h6 class="card-title text-secondary">Location :</h6>
-                                                        <h5 class="card-title">Marivelez, Bataan</h5>
-                                                        <p class="card-text muted">ABC Street.</p>
+                                                        <h6 class="card-title">{{ $consultation->address }}</h6>
+                                                        {{-- <p class="card-text muted">ABC Street.</p> --}}
                                                     </div>
                                                     <div class="position-absolute" style="top: 40px; right:10px">
                                                         <i class="fa-solid fa-map-location-dot fa-2xl"
@@ -109,13 +125,13 @@
                                                     <div class="card-body g-1" style="display: flex; gap:5px;">
                                                         {{-- <h5 class="card-title">Appoint now</h5> --}}
                                                         <div class="mt-3">
-                                                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            <a href="#" data-consultationId="{{ $consultation->id }}" data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 title="Show on the map"
                                                                 class="border p-2 border-warning text-warning rounded"><i
                                                                     class="fa-solid fa-location-dot fa-2xl"></i></a>
                                                         </div>
                                                         <div class="mt-3">
-                                                            <a href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            <a href="#" data-consultationId="{{ $consultation->id }}" data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 title="Add Records" class="border p-2 border-primary rounded"><i
                                                                     class="fa-solid fa-plus fa-2xl"></i></a>
                                                         </div>
@@ -127,7 +143,7 @@
                                                 </div>
                 
                                             </div>
-                                        {{-- @endforeach --}}
+                                        @endforeach
                                        
                 
                                     </div>

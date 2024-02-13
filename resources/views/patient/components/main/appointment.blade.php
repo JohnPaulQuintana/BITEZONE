@@ -44,6 +44,7 @@
                 <div class="card-body">
     
                     <div class="card mb-3">
+                        
                         @foreach ($rhus as $key => $rhu)
                             <div class="row g-0 mb-2 border rhu" data-id="{{ $rhu->id }}">
 
@@ -129,7 +130,6 @@
                             </div>
                         @endforeach
                        
-
                     </div>
 
                 </div>
@@ -138,13 +138,18 @@
 
         
     </div>
-    @include('patient.components.modals.consultation')
+    
 @endsection
 
 @section('scripts')
     @include('patient.components.files.scripts')
     <script>
         $(document).ready(function(){
+           
+            var error = @json($errors->all());
+            var status = @json(session('status'));
+            console.log(error)
+
             // searching for events
             $('#search-rhu').on('input', function() {
                 var searchInput = $(this).val().toLowerCase();
@@ -163,12 +168,49 @@
             // function to open consulation form
             function openConsultationForm(){
                 $(document).on('click', '.consultation-btn', function(){
+                    var rhuId = $(this).data('id')
+                    localStorage.setItem('reciever_id', parseInt(rhuId))
+                    $('#hidden-rhu-id').val(parseInt(rhuId))
                     $('#consultation-Modal').modal('show')
                 })
             }
 
+            function swalOpen(status, error){
+                if(status != null){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: status,
+                        showConfirmButton: false,
+                        timer: 2000,
+                        willClose: () => {
+                            localStorage.setItem('reciever_id', 0)
+                        }
+                    });
+                }
+
+                if(error.length > 0){
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Encountering an error, check your form details",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        willClose: () => {
+                            $('#hidden-rhu-id').val(localStorage.getItem('reciever_id'))
+                            $('#consultation-Modal').modal('show')
+                        }
+                    });
+
+                    
+                }
+
+                
+            }
+
             // init function 
             openConsultationForm()
+            swalOpen(status, error)
         })
     </script>
 @endsection

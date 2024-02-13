@@ -53,7 +53,7 @@
 
         </div>
         <!-- end main content-->
-
+        @include('patient.components.modals.consultation')
     </div>
 
     @yield('scripts')
@@ -61,16 +61,7 @@
     <script>
         $(document).ready(function(){
             $('.noti-dot').css({'display': 'none'})
-            var status = @json(session('status'));
-            if(status != null){
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: status,
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-            }
+            
         })
     </script>
 </body>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NotifyEvent;
 use App\Models\Consultation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ConsultationFormRequest;
+use App\Models\ConsultationNotification;
 
 class ConsultationController extends Controller
 {
@@ -17,10 +19,8 @@ class ConsultationController extends Controller
     {
 
         try {
-            $validatedData = $request->validated();
-
-            
-            Consultation::create([
+            $validatedData = $request->validated();           
+            $notifyUser = Consultation::create([
                 'sender_id' => Auth::user()->id,
                 'reciever_id' => $validatedData['reciever_id'],
                 'fullname' => $validatedData['firstname'] . ' ' . $validatedData['middlename'] . ' ' . $validatedData['lastname'],
@@ -33,7 +33,27 @@ class ConsultationController extends Controller
                 'comments' => $validatedData['animal_bite_comments'],
             ]);
             $statusMessage = 'Appointment is submitted successfully.';
-            return Redirect::route('appointment')->with('status', $statusMessage);
+
+            // get the sender profile
+            $n = [
+                'id' => $notifyUser->reciever_id,
+                'role' => 1,// for admin notif
+                'firstname' => $validatedData['firstname'],
+                'lastname' => $validatedData['lastname'],
+                'middlename' => $validatedData['middlename'],
+            ];
+
+            event(new NotifyEvent($n));
+
+            $notifyAdmin = ConsultationNotification::create([
+                'reciever_id' => $notifyUser->reciever_id,
+                'sender_name' => $notifyUser->fullname,
+                'notification_message' => $notifyUser->fullname." is sending a consultation form to you.",
+                'notification_type' => 'consulation',
+                'notification_profile' => Auth::user()->profile,
+            ]);
+            
+            return Redirect::route('rhu')->with('status', $statusMessage);
         } catch (\Throwable $th) {
              // If validation fails or any other exception occurs
              $errorMessage = (object)['message' => 'Appointment encountered an error.', 'is_open' => false];

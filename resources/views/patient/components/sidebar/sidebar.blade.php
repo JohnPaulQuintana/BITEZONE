@@ -31,7 +31,7 @@
             <li>
                 <a href="{{ route('appointment') }}" class="waves-effect">
                     <i class="ri-file-list-3-line text-info"></i>
-                    <span>My Appointment</span>
+                    <span>My Record</span>
                 </a>
             </li>
             <li>
@@ -54,7 +54,7 @@
             </li>
             
 
-            <li class="menu-title">Date and Time</li>
+            {{-- <li class="menu-title">Date and Time</li>
             
             <li>
                 <a href="{{ route('admin.dashboard') }}" class="waves-effect">
@@ -62,7 +62,7 @@
                     
                     <span class="current-date text-dark">12:00 PM</span>
                 </a>
-            </li>
+            </li> --}}
             {{-- <hr class="text-dark"> --}}
         </ul>
         <!-- Add a container for the time display -->

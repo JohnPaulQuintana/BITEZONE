@@ -61,6 +61,7 @@
                 'display': 'none'
             })
 
+            // newly registered user
             function getNotification() {
                 // Make the AJAX request with CSRF token in headers
                 // Get the CSRF token from the hidden input field
@@ -119,12 +120,95 @@
                     }
                 });
             }
+            // consultation
+            function getConsultationNotification() {
+                // Make the AJAX request with CSRF token in headers
+                // Get the CSRF token from the hidden input field
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    type: "GET",
+                    url: "/notification-consultation",
+                    headers: {
+                        "X-CSRF-TOKEN": csrfToken
+                    },
+                    success: function(response) {
+                        console.log(response.consultationNotifs)
+                        // Handle the AJAX response here
+                        var renderNotif = ''
+                        // Using a conditional statement
+                        if (response.consultationNotifs.length > 0) {
+                            $('noti-dot').css({
+                                'display': 'block'
+                            })
+                            
+                            $('.count-notif').text(response.consultationNotifs.length)
+                            var baseUrl = window.location.origin;
+                            response.consultationNotifs.forEach(notif => {
+                                renderNotif += `
+                                    <a class="text-reset notification-item" data-id="${notif.id}" style="cursor:pointer;">
+                                        <div class="d-flex">
+                                            <img src="${baseUrl}/storage/${notif.notification_profile ? notif.notification_profile : 'profiles/default.jpg'}"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="mb-1 text-primary">${notif.sender_name} <span class="badge bg-danger"> ${notif.notification_type}</span></h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">${notif.notification_message}</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 minutes ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                `
+                            });
+                            $('.notif-container').html(renderNotif)
+                            $('.noti-dot').css({
+                                'display': 'flex'
+                            })
+
+                            $('.notification-item').on("click", function() {
+                                updateAdminNotif($(this).data('id'));
+                            })
+
+                        } else {
+
+                            $('.noti-dot').css({
+                                'display': 'none'
+                            })
+                        }
+                    },
+                    error: function(error) {
+                        // Handle AJAX error here
+                        console.error(error);
+                    }
+                });
+            }
 
             function updateNotif($id) {
                 // alert(csrfToken)
                 $.ajax({
                     type: "POST",
                     url: "/notification-update",
+                    headers: {
+                        "X-CSRF-TOKEN": csrfToken
+                    },
+                    data: {
+                        'id': $id
+                    },
+                    success: function(response) {
+                        // Redirect to the desired URL using JavaScript
+                        location.reload()
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+                })
+            }
+
+            function updateAdminNotif($id) {
+                // alert(csrfToken)
+                $.ajax({
+                    type: "POST",
+                    url: "/notification-admin-update",
                     headers: {
                         "X-CSRF-TOKEN": csrfToken
                     },
@@ -152,7 +236,12 @@
                     // means new patients is registered
                     if (data.notif.role == 0) {
                         getNotification()
+                        
+                    }else{
+                        getConsultationNotification()
                     }
+
+                    
                 });
             }
 
@@ -218,6 +307,7 @@
             // init
             pusherFunction()
             getNotification()
+            getConsultationNotification()
             renderPatientLocation()
         })
     </script>

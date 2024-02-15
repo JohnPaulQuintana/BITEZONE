@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\ConsultationNotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\locationController;
@@ -31,12 +32,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // notification admin
     Route::get('/notification', [NotificationController::class, 'getNotification'])->name('notification');
     Route::post('/notification-update', [NotificationController::class, 'updateNotification'])->name('update.notification');
+    Route::get('/notification-consultation', [ConsultationNotificationController::class, 'getConsultationNotif'])->name('notification.consultation');
+    Route::post('/notification-admin-update', [ConsultationNotificationController::class, 'updateNotificationAdmin'])->name('update.notification.admin');
 
     // patients location for admin
     Route::get('/patient-coordinates',[locationController::class, 'location'])->name('patient.location');
     Route::get('/patient', [AdminController::class, 'patient'])->name('patient.dashboard');
-    Route::get('/rhu', [AdminController::class, 'rhu'])->name('rhu');
     Route::get('/my-appointment', [AdminController::class, 'myAppointment'])->name('appointment');
+    Route::get('/rhu', [AdminController::class, 'rhu'])->name('rhu');
     Route::post('/consultation', [ConsultationController::class, 'processForm'])->name('consultation.form');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

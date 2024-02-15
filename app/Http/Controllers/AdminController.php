@@ -28,15 +28,20 @@ class AdminController extends Controller
     public function dnd(){
         return view('patient.components.main.dnd');
     }
-    public function rhu(){
-        return view('patient.components.main.rhu');
-    }
     public function myAppointment(){
+        $myRecords = Consultation::join('users', 'consultations.reciever_id', '=', 'users.id')
+        ->where('consultations.sender_id', Auth::user()->id)
+        ->latest('consultations.created_at')
+        ->select('consultations.*', 'users.firstname as rhu_firstname', 'users.lastname as rhu_lastname', 'users.middlename as rhu_middlename', 'users.address as rhu_address')
+        ->get();
+        return view('patient.components.main.appointment')->with(['myRecords' => $myRecords]);
+    }
+    public function rhu(){
         $rhu = User::where('role', 1)
         ->latest()
         ->with(['clinic'])
         ->get(['id', 'firstname', 'lastname', 'address', 'lat', 'long', 'gender', 'contact_no']);
         // dd($rhu);
-        return view('patient.components.main.appointment',['rhus'=>$rhu]);
+        return view('patient.components.main.rhu',['rhus'=>$rhu]);
     }
 }
